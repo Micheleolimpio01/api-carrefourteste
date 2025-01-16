@@ -1,0 +1,1081 @@
+{
+	"info": {
+		"_postman_id": "3bc87dcd-ca9c-4b57-ba98-a2d6b91eae04",
+		"name": "Carrefour Desafio Michele",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19367158"
+	},
+	"item": [
+		{
+			"name": "Cadastrar usuário",
+			"item": [
+				{
+					"name": "Cadastrar usuário com sucesso",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n  {\n    \"nome\": \"Michele teste>\",\n    \"email\": \"michele.teste@teste.com\",\n    \"password\": \"teste123\",\n    \"administrador\": true\n  },\n  {\n    \"nome\": \"Pedro Santos\",\n    \"email\": \"pedro@example.com\",\n    \"password\": \"teste123\",\n    \"administrador\": true\n  }\n]\n\n",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/usuarios",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuarios"
+							]
+						},
+						"description": "Não é permitido cadastrar usuário com email já utilizado"
+					},
+					"response": [
+						{
+							"name": "Cadastro com sucesso",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nome\": \"Michele teste\",\n  \"email\": \"michele.teste11@teste.com\",\n  \"password\": \"senha123\",\n  \"administrador\": \"true\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://serverest.dev/usuarios",
+									"protocol": "https",
+									"host": [
+										"serverest",
+										"dev"
+									],
+									"path": [
+										"usuarios"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"<string>\",\n  \"_id\": \"<string>\"\n}"
+						},
+						{
+							"name": "E-mail inválido",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nome\": \"Michele teste\",\n  \"email\": \"michele\",\n  \"password\": \"senha123\",\n  \"administrador\": \"true\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/usuarios",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"usuarios"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"<string>\"\n}"
+						},
+						{
+							"name": "E-mail em branco",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nome\": \"Michele teste\",\n  \"email\": \"\",\n  \"password\": \"senha123\",\n  \"administrador\": \"true\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/usuarios",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"usuarios"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"<string>\"\n}"
+						},
+						{
+							"name": "Senha em branco",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nome\": \"Michele teste\",\n  \"email\": \"michele.teste100@teste.com\",\n  \"password\": \"\",\n  \"administrador\": \"true\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/usuarios",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"usuarios"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"<string>\"\n}"
+						},
+						{
+							"name": "E-mail já cadastrado",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nome\": \"Michele teste\",\n  \"email\": \"michele.teste4@teste.com\",\n  \"password\": \"senha123\",\n  \"administrador\": \"true\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/usuarios",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"usuarios"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"<string>\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Listar Usuários",
+			"item": [
+				{
+					"name": "Listar usuários cadastrados",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/usuarios",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuarios"
+							],
+							"query": [
+								{
+									"key": "_id",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "nome",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "senha123",
+									"disabled": true
+								},
+								{
+									"key": "administrador",
+									"value": "true",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar usuários Administradores",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/usuarios?administrador=true",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuarios"
+							],
+							"query": [
+								{
+									"key": "_id",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "nome",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "senha123",
+									"disabled": true
+								},
+								{
+									"key": "administrador",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Buscar usuários por ID",
+			"item": [
+				{
+					"name": "Buscar usuário por ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"string_you_want_to_search\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/usuarios/:_id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuarios",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "M2IcRFp5dDaGoHit",
+									"description": "(Required) ID do usuário"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Usuário encontrado",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://serverest.dev/usuarios/:_id",
+									"protocol": "https",
+									"host": [
+										"serverest",
+										"dev"
+									],
+									"path": [
+										"usuarios",
+										":_id"
+									],
+									"variable": [
+										{
+											"key": "_id",
+											"value": "M2IcRFp5dDaGoHit"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"nome\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"administrador\": \"false\",\n  \"_id\": \"<string>\"\n}"
+						},
+						{
+							"name": "Usuário não encontrado",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/usuarios/:_id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"usuarios",
+										":_id"
+									],
+									"variable": [
+										{
+											"key": "_id"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"<string>\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Editar usuário",
+			"item": [
+				{
+					"name": "Editar usuário",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "jwt",
+							"jwt": [
+								{
+									"key": "algorithm",
+									"value": "HS256",
+									"type": "string"
+								},
+								{
+									"key": "isSecretBase64Encoded",
+									"value": false,
+									"type": "boolean"
+								},
+								{
+									"key": "payload",
+									"value": "{}",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "headerPrefix",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "queryParamKey",
+									"value": "token",
+									"type": "string"
+								},
+								{
+									"key": "header",
+									"value": "{}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nome\": \"Michele Olimpio\",\n  \"email\": \"michele.teste@teste.com\",\n  \"password\": \"senha123\",\n  \"administrador\": \"true\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/usuarios/:_id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuarios",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "M2IcRFp5dDaGoHit",
+									"description": "(Required) ID do usuário"
+								}
+							]
+						},
+						"description": "Não é permitido cadastrar usuário com email já utilizado.\nCaso não seja encontrado usuário com o ID informado é realizado novo cadastro ao invés de alteração.\n"
+					},
+					"response": [
+						{
+							"name": "E-mail Inválido",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nome\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"administrador\": \"true\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/usuarios/:_id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"usuarios",
+										":_id"
+									],
+									"variable": [
+										{
+											"key": "_id"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"<string>\",\n  \"_id\": \"<string>\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Excuir usuário",
+			"item": [
+				{
+					"name": "Exclusão de usuario já excluido",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJraWQiOiIwQmtRdzE1Sm05QlNaQnA5R201Vktic3lkdkVLZmxmaXlQbUJCR2I2RVVJPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJmMTliMjVjMC03MGMxLTcwMzktY2NhMy1iZjg3Zjk1OGE4YzUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl9KSTRRaEN5eGIiLCJjbGllbnRfaWQiOiI0bTk5a2dnMGJiM2VjcmN1YmZmb2poNTY2cyIsIm9yaWdpbl9qdGkiOiIxNjM2N2JlMC02ZjQxLTRjYWYtOGRhMy0wZjAzYzkwNDM1M2IiLCJldmVudF9pZCI6IjczM2IzYTY4LWFiMjQtNDM1ZC05YTc5LWVlMGRkMmEyNDZiMyIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE3MjQzNDc0MDUsImV4cCI6MTcyNDM0ODMwNSwiaWF0IjoxNzI0MzQ3NDA1LCJqdGkiOiJkODlkZTRmMS03OWU0LTRlNjctOTAzNy00ZjE3MjE2NWU2N2IiLCJ1c2VybmFtZSI6ImYxOWIyNWMwLTcwYzEtNzAzOS1jY2EzLWJmODdmOTU4YThjNSJ9.y6PQvZv2_99AuueR19Ke9BrpGynW8DN3AWsQzguH_xUGqlWJkH7z7bZzmmTzGfvgg4YCOnk2gFGUU2ETWuJsSQ3i5bM37woGh_h2FgW3vrRsVI9My6FBw-1udH-ODSKdeffBpTbrpdfk7RnJwoDkjk8kqoDfoSETNK6ewPRWkjN7sGeopLnVoOkzH7f6xhx7TldAjiLrByd7YnIDfnx4h2Pcy6YBrsfA6Mn-S2DandW2J8vAK9e2tjiqsksS4oSJv2A1vbSO2BrDeeGHUnyAY33op_vmxjVeapBa7rO4wSyfR_2Te3Pxoiek1lJhQUD0NfVJdpgINRJ_LCQ1OVTAiA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/usuarios/:_id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuarios",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "I65Nm5djJjQUJ2ZL",
+									"description": "(Required) ID do usuário"
+								}
+							]
+						},
+						"description": "Não é permitido excluir usuário com carrinho."
+					},
+					"response": [
+						{
+							"name": "Registro excluído com sucesso | Nenhum registro excluído",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://serverest.dev/usuarios/:_id",
+									"protocol": "https",
+									"host": [
+										"serverest",
+										"dev"
+									],
+									"path": [
+										"usuarios",
+										":_id"
+									],
+									"variable": [
+										{
+											"key": "_id"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"<string>\"\n}"
+						},
+						{
+							"name": "Usuário sem registro",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/usuarios/:_id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"usuarios",
+										":_id"
+									],
+									"variable": [
+										{
+											"key": "_id"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"<string>\",\n  \"idCarrinho\": \"<string>\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Exclusão de usuario",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/usuarios/:_id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuarios",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "I65Nm5djJjQUJ2ZL",
+									"description": "(Required) ID do usuário"
+								}
+							]
+						},
+						"description": "Não é permitido excluir usuário com carrinho."
+					},
+					"response": [
+						{
+							"name": "Registro excluído com sucesso | Nenhum registro excluído",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://serverest.dev/usuarios/:_id",
+									"protocol": "https",
+									"host": [
+										"serverest",
+										"dev"
+									],
+									"path": [
+										"usuarios",
+										":_id"
+									],
+									"variable": [
+										{
+											"key": "_id"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"<string>\"\n}"
+						},
+						{
+							"name": "Usuário sem registro",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/usuarios/:_id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"usuarios",
+										":_id"
+									],
+									"variable": [
+										{
+											"key": "_id"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"<string>\",\n  \"idCarrinho\": \"<string>\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "API de Amostra",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"\r",
+							"    pm.test('Status code is 200', \r",
+							"function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test('Response time is less than 200ms', \r",
+							"function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": [
+						{
+							"key": "algorithm",
+							"value": "HS256",
+							"type": "string"
+						},
+						{
+							"key": "isSecretBase64Encoded",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "payload",
+							"value": "{}",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "queryParamKey",
+							"value": "token",
+							"type": "string"
+						},
+						{
+							"key": "header",
+							"value": "{}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://postman-echo.com/get",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"get"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"\r",
+					"    pm.test('Status code is 200', \r",
+					"function () {\r",
+					"    pm.response.to.have.status(200);\r",
+					"});\r",
+					"\r",
+					"pm.test('Response time is less than 200ms', \r",
+					"function () {\r",
+					"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+					"});\r",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"\r",
+					"    pm.test('Status code is 200', \r",
+					"function () {\r",
+					"    pm.response.to.have.status(200);\r",
+					"});\r",
+					"\r",
+					"pm.test('Response time is less than 200ms', \r",
+					"function () {\r",
+					"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+					"});\r",
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://serverest.dev/",
+			"type": "string"
+		}
+	]
+}
