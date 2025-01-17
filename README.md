@@ -41,3 +41,5 @@ Deletar Usuário
 Método: DELETE
 Descrição: Envia uma requisição para excluir o cadastro de um usuário pelo seu ID.
 Validação: O teste valida se a exclusão foi realizada corretamente e o status de sucesso da requisição.
+
+Foi adicionado em cada end-point na aba de testes validações extras,
